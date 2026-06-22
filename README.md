@@ -62,12 +62,14 @@ A sample Normal game (range 1–100, 8 attempts). The secret for this run, read 
 platform win32 -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0
 rootdir: ...\ai110-module1show-gameglitchinvestigator-starter
 plugins: anyio-4.14.0
-collected 12 items
+collected 17 items
 
-tests\test_game_logic.py ............                                    [100%]
+tests\test_game_logic.py .................                               [100%]
 
-============================= 12 passed in 0.05s ==============================
+============================= 17 passed in 0.07s ==============================
 ```
+
+Includes 5 advanced edge-case tests (Challenge 1) covering negative numbers, decimal input, extremely large values, whitespace-padded input, and rejected scientific notation — see [ai_interactions.md](ai_interactions.md) for the prompts and rationale.
 
 ## 🚀 Stretch Features
 

@@ -89,9 +89,9 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
-    # FIX: a new game must reset ALL state. The starter only reset attempts and
-    # the secret, so score/history carried over and a finished game stayed stuck
-    # on "Game over" (status was never set back to "playing").
+    # FIX: a new game must reset ALL state. The starter only reset attempts
+    # and the secret, so score/history carried over and a finished game stayed
+    # stuck on "Game over" (status was never set back to "playing").
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
     st.session_state.score = 0
@@ -120,8 +120,8 @@ if submit:
 
         # FIXME -> FIX: the starter turned the secret into a string on even
         # attempts, which broke numeric comparison. Always compare against the
-        # integer secret. check_guess now returns just the outcome; the UI looks
-        # up the hint text.
+        # integer secret. check_guess now returns just the outcome; the UI
+        # looks up the hint text.
         outcome = check_guess(guess_int, st.session_state.secret)
         message = HINT_MESSAGES[outcome]
 

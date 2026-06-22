@@ -54,11 +54,20 @@ AI helped me design the tests by suggesting the "test the bug, not just the happ
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
+Streamlit re-runs your entire script from top to bottom every time the user interacts with the page — clicking a button, typing in a box, anything. So any normal variable you create is born fresh and forgotten on every click, like the script has amnesia. `st.session_state` is the app's long-term memory: values you store there (like the secret number, the score, and the attempt count in this game) survive across reruns. That's why the code carefully checks `if "secret" not in st.session_state` before generating one — so the secret is picked once and remembered, instead of being re-rolled on every guess. Understanding this was key to seeing why "New Game" had to explicitly reset each stored value rather than just hoping they'd clear themselves.
+
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
-  - This could be a testing habit, a prompting strategy, or a way you used Git.
+
+The biggest habit I want to keep is **writing a test that reproduces the bug before I trust the fix**. For each glitch I picked the exact input that used to break (like guess 100 vs secret 20) and asserted the correct result, so the test would have failed on the old code. That turned "I think it's fixed" into "pytest proves it's fixed." I also want to keep the habit of separating logic from UI — moving the rules into `logic_utils.py` made everything testable.
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+
+I'd verify the AI's *explanations* as critically as its code. Early on the AI confidently said "you can't win on even attempts," and it sounded right — but actually running the function showed the bug was different (the hints became nonsense, not the win). Next time I'll run the code to confirm a diagnosis before acting on it, rather than trusting a plausible-sounding explanation.
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+AI-generated code can look polished and run without crashing while still being quietly, completely wrong — the hardest bugs here threw no errors at all. I now treat AI output as a confident first draft that I'm responsible for verifying, not as a finished answer.

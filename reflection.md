@@ -71,3 +71,18 @@ I'd verify the AI's *explanations* as critically as its code. Early on the AI co
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
 
 AI-generated code can look polished and run without crashing while still being quietly, completely wrong — the hardest bugs here threw no errors at all. I now treat AI output as a confident first draft that I'm responsible for verifying, not as a finished answer.
+
+
+## Finalized README and reflection documentation
+
+Update README.md:
+- Document Your Experience: game purpose, bugs found, and fixes applied
+- Demo Walkthrough: step-by-step text walkthrough of a fixed game
+  showing corrected hints, score updates, the win, and New Game reset
+- Test Results: pytest output (12 passed)
+
+Complete reflection.md:
+- How AI was used as a teammate (one correct, one misleading suggestion)
+- Debugging and testing approach (reproduce-the-bug-first tests)
+- Explanation of Streamlit reruns and session state
+- Developer habits and takeaways on verifying AI-generated code
